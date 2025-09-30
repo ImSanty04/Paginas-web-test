@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio | Gloss Detailing LP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="gdlplogo.png">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: #0d0d0d;
+            color: #fff;
+            user-select: none;
+            /* dificulta copiar */
+            -webkit-user-drag: none;
+            -webkit-touch-callout: none;
+            /* iOS: evita menú de mantener pulsado */
+        }
+
+        header {
+            background: #111;
+            padding: 1rem 2rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            color: #e41414;
+            font-size: 1.8rem;
+            margin: 0;
+        }
+
+        .portfolio {
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .portfolio img,
+        .portfolio video {
+            width: 100%;
+            height: 250px;
+            /* todas parejas */
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+            transition: transform 0.3s;
+            cursor: zoom-in;
+        }
+
+        .portfolio img:hover,
+        .portfolio video:hover {
+            transform: scale(1.05);
+        }
+
+        /* Bloqueos básicos */
+        img,
+        video {
+            -webkit-user-drag: none;
+        }
+
+        .portfolio img {
+            pointer-events: auto;
+        }
+
+        /* Modal / Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+
+        .lightbox.open {
+            display: flex;
+        }
+
+        .lightbox-content {
+            max-width: 96vw;
+            max-height: 88vh;
+            position: relative;
+        }
+
+        .lightbox img,
+        .lightbox video {
+            max-width: 96vw;
+            max-height: 88vh;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+        }
+
+        .lightbox .close-btn {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            background: #e41414;
+            color: #fff;
+            border: none;
+            border-radius: 999px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            font-size: 22px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        footer {
+            background: #111;
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.9rem;
+            color: #888;
+            margin-top: 2rem;
+        }
+
+        footer a {
+            color: #e41414;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #ff1c1c;
+        }
+    </style>
+</head>
+
+<body oncontextmenu="return false;">
+    <header>
+        <h1>Gloss Detailing LP</h1>
+    </header>
+
+    <section class="portfolio" id="portfolio">
+        <img src="img/p208.png" alt="Auto pulido" draggable="false">
+        <img src="img/dif2.png" alt="Limpieza interior" draggable="false">
+
+        <!-- Video en grilla -->
+        <video autoplay muted loop playsinline controlslist="nodownload" preload="metadata" draggable="false">
+            <source src="img/trat.mp4" type="video/mp4">
+            Tu navegador no soporta video.
+        </video>
+
+        <img src="img/dif.png" alt="Antes y después detailing" draggable="false">
+        <img src="img/trabajo5.jpg" alt="Tapizados impecables" draggable="false">
+        <img src="img/camaro.png" alt="Auto brillando" draggable="false">
+    </section>
+
+    <!-- Lightbox / Modal -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content" id="lightboxContent">
+            <!-- Se inyecta IMG o VIDEO según lo cliqueado -->
+            <button class="close-btn" title="Cerrar" aria-label="Cerrar" onclick="closeLightbox()">×</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Gloss Detailing LP | Portafolio</p>
+        <a href="index.html">⬅ Volver al inicio</a>
+    </footer>
+
+    <script>
+        // Abre lightbox con imagen o video según el elemento clickeado
+        const grid = document.getElementById('portfolio');
+        const lb = document.getElementById('lightbox');
+        const lbContent = document.getElementById('lightboxContent');
+
+        grid.addEventListener('click', (e) => {
+            const el = e.target;
+            if (!(el.tagName === 'IMG' || el.tagName === 'VIDEO')) return;
+
+            // Limpia contenido previo
+            Array.from(lbContent.querySelectorAll('img,video')).forEach(n => n.remove());
+
+            if (el.tagName === 'IMG') {
+                const big = document.createElement('img');
+                big.src = el.src;
+                big.alt = el.alt || '';
+                big.draggable = false;
+                big.oncontextmenu = () => false; // bloqueo menú
+                lbContent.prepend(big);
+            } else if (el.tagName === 'VIDEO') {
+                const vid = document.createElement('video');
+                vid.controls = true;                      // controles visibles
+                vid.controlsList = 'nodownload';          // sin botón descargar (navegadores compatibles)
+                vid.preload = 'metadata';
+                vid.playsInline = true;
+                vid.src = el.querySelector('source')?.src || el.src;
+                vid.oncontextmenu = () => false;
+                lbContent.prepend(vid);
+                // Autoplay al abrir (silenciado si requiere)
+                const play = vid.play?.();
+                if (play && typeof play.catch === 'function') play.catch(() => { });
+            }
+
+            lb.classList.add('open');
+        });
+
+        function closeLightbox() {
+            lb.classList.remove('open');
+            // Pausa video si hay uno abierto
+            const openVid = lbContent.querySelector('video');
+            if (openVid) openVid.pause();
+        }
+
+        // Cerrar al click fuera del contenido
+        lb.addEventListener('click', (e) => {
+            if (e.target === lb) closeLightbox();
+        });
+
+        // Cerrar con ESC
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+    </script>
+</body>
+
+</html>
