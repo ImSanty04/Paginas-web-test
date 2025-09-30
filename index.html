@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gloss Detailing LP | Estética Automotriz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="gdlplogo.png">
+    <!-- Font Awesome para íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-dark: #0d0d0d;
+            --accent: #e41414;
+            --accent2: #c0c0c0;
+            --text-light: #fff;
+            --shadow: 0 6px 24px rgba(0, 0, 0, 0.6);
+            --radius: 12px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            overflow-x: hidden;
+        }
+
+        header {
+            background: #111;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+
+        .logo img {
+            height: 55px;
+        }
+
+        .logo span {
+            font-weight: 800;
+            font-size: 1.4rem;
+            color: var(--accent);
+        }
+
+        nav {
+            display: flex;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: 600;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        /* botón hamburguesa */
+        .menu-toggle {
+            display: none;
+            font-size: 2rem;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            cursor: pointer;
+        }
+
+        /* menú móvil oculto */
+        .mobile-nav {
+            display: none;
+            flex-direction: column;
+            width: 100%;
+            background: #111;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            box-shadow: var(--shadow);
+        }
+
+        .mobile-nav a {
+            padding: 1rem;
+            text-align: center;
+            text-decoration: none;
+            color: var(--text-light);
+            border-bottom: 1px solid #222;
+            cursor: pointer;
+        }
+
+        .mobile-nav a:hover {
+            background: var(--accent);
+            color: #fff;
+        }
+
+        .mobile-nav.show {
+            display: flex;
+        }
+
+        /* responsive */
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+        }
+
+        .hero {
+            text-align: center;
+            padding: 4rem 1rem;
+            background: linear-gradient(135deg, rgba(228, 20, 20, 0.2), rgba(192, 192, 192, 0.2));
+        }
+
+        .hero img {
+            width: 160px;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.2));
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 0.6rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #ccc;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.6rem;
+            border-radius: var(--radius);
+            font-weight: 700;
+            text-decoration: none;
+            background: var(--accent);
+            color: #fff;
+            margin: 0.4rem;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #ff1c1c;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 200;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .modal-content {
+            background: #111;
+            margin: 10% auto;
+            padding: 2rem;
+            border-radius: var(--radius);
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .modal-content h2 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .modal-content a {
+            display: block;
+            margin: 0.7rem 0;
+            font-size: 1.1rem;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .modal-content a:hover {
+            color: var(--accent);
+        }
+
+        .modal-content i {
+            margin-right: 8px;
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.8rem;
+            color: #aaa;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: var(--accent);
+        }
+
+        .services {
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+
+        .services h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: #1a1a1a;
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+        }
+
+        .card h3 {
+            margin-bottom: 0.6rem;
+            color: var(--accent2);
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background: #111;
+            color: #777;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="gdlplogo.png" alt="logo gloss detailing">
+            <span>Gloss Detailing LP</span>
+        </div>
+        <!-- boton hamburguesa -->
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <!-- menú normal -->
+        <nav>
+            <a href="#servicios">Servicios</a>
+            <a href="javascript:void(0);" onclick="openModal()">Contacto</a>
+        </nav>
+        <!-- menú móvil -->
+        <div class="mobile-nav" id="mobileNav">
+            <a href="#servicios">Servicios</a>
+            <a href="javascript:void(0);" onclick="openModal()">Contacto</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <img src="gdlplogo.png" alt="logo principal">
+        <h1>Expertos en Estética Automotriz</h1>
+        <p>Protegemos y realzamos la belleza de tu vehículo con la mejor calidad en La Plata.</p>
+        <a class="btn" href="servicios.html" target="_blank">Ver Servicios</a>
+        <a class="btn" href="javascript:void(0);" onclick="openModal()">Contactar</a>
+    </section>
+
+    <!-- Modal Contacto -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Contáctanos</h2>
+            <!--           <a href="mailto:contacto@glossdetailinglp.com"><i class="fa-solid fa-envelope"></i>
+                contacto@glossdetailinglp.com</a> -->
+            <a href="https://wa.me/5492216241019" target="_blank"><i class="fa-brands fa-whatsapp"></i> +54 9 221
+                624-1019
+            </a>
+            <a href="https://www.instagram.com/Glossdetailing.lp" target="_blank"><i class="fa-brands fa-instagram"></i>
+                @Glossdetailing.lp</a>
+        </div>
+    </div>
+
+    <section class="services" id="servicios">
+        <h2>Nuestros Servicios</h2>
+        <div class="services-grid">
+            <div class="card">
+                <h3>Pulido y Abrillantado</h3>
+                <p>Recuperamos el brillo natural de tu auto con técnicas profesionales.</p>
+            </div>
+            <div class="card">
+                <h3>Tratamientos Cerámicos</h3>
+                <p>Protección duradera contra rayones, suciedad y el paso del tiempo.</p>
+            </div>
+            <div class="card">
+                <h3>Limpieza Premium</h3>
+                <p>Detalle interior y exterior para que tu vehículo luzca impecable.</p>
+            </div>
+            <div class="card">
+                <h3>Aspirado y Tapizados</h3>
+                <p>Limpieza profunda de alfombras, asientos y plásticos interiores.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Gloss Detailing LP. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById("mobileNav").classList.toggle("show");
+        }
+
+        function openModal() {
+            document.getElementById("contactModal").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("contactModal").style.display = "none";
+        }
+
+        window.onclick = function (event) {
+            const modal = document.getElementById("contactModal");
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+
+</html>
