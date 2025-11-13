@@ -30,6 +30,9 @@
             background: var(--bg-dark);
             color: var(--text-light);
             overflow-x: hidden;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         header {
@@ -37,11 +40,12 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 2rem;
+            padding: 0.8rem 2rem;
             box-shadow: var(--shadow);
             position: sticky;
             top: 0;
             z-index: 100;
+            flex-shrink: 0;
         }
 
         .logo {
@@ -51,12 +55,12 @@
         }
 
         .logo img {
-            height: 55px;
+            height: 45px;
         }
 
         .logo span {
             font-weight: 800;
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             color: var(--accent);
         }
 
@@ -117,53 +121,44 @@
             display: flex;
         }
 
-        /* responsive */
-        @media (max-width: 768px) {
-            nav {
-                display: none;
-            }
-
-            .menu-toggle {
-                display: block;
-            }
-        }
-
         .hero {
             text-align: center;
-            padding: 4rem 1rem;
+            padding: 2rem 1rem 1.5rem;
             background: linear-gradient(135deg, rgba(228, 20, 20, 0.2), rgba(192, 192, 192, 0.2));
+            flex-shrink: 0;
         }
 
         .hero img {
-            width: 260px;
-            margin-bottom: 1rem;
+            width: 180px;
+            margin-bottom: 0.8rem;
             filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.2));
         }
 
         .hero h1 {
-            font-size: 2.4rem;
+            font-size: 2rem;
             font-weight: 800;
             color: var(--accent);
-            margin-bottom: 0.6rem;
+            margin-bottom: 0.5rem;
         }
 
         .hero p {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: #ccc;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         .btn {
             display: inline-block;
-            padding: 0.8rem 1.6rem;
+            padding: 0.7rem 1.4rem;
             border-radius: var(--radius);
             font-weight: 700;
             text-decoration: none;
             background: var(--accent);
             color: #fff;
-            margin: 0.4rem;
+            margin: 0.3rem;
             transition: 0.3s;
             cursor: pointer;
+            font-size: 0.95rem;
         }
 
         .btn:hover {
@@ -230,27 +225,34 @@
         }
 
         .services {
-            padding: 3rem 1.5rem;
+            padding: 1.5rem 1.5rem 1rem;
             text-align: center;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .services h2 {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             margin-bottom: 1rem;
             color: var(--accent);
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.2rem;
+            margin-top: 1rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .card {
             background: #1a1a1a;
             border-radius: var(--radius);
-            padding: 1.5rem;
+            padding: 1.2rem;
             box-shadow: var(--shadow);
             transition: 0.3s;
         }
@@ -260,16 +262,76 @@
         }
 
         .card h3 {
-            margin-bottom: 0.6rem;
+            margin-bottom: 0.5rem;
             color: var(--accent2);
+            font-size: 1.1rem;
+        }
+
+        .card p {
+            font-size: 0.9rem;
         }
 
         footer {
             text-align: center;
-            padding: 1rem;
+            padding: 0.8rem;
             background: #111;
             color: #777;
-            margin-top: 3rem;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+
+        /* responsive móvil: vuelve a scroll normal */
+        @media (max-width: 768px) {
+            body {
+                height: auto;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero img {
+                width: 160px;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .services {
+                padding: 2rem 1rem;
+            }
+
+            .services h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* pantallas muy grandes: ajuste adicional */
+        @media (min-width: 1600px) {
+            .hero img {
+                width: 200px;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .services h2 {
+                font-size: 1.8rem;
+            }
+
+            .card {
+                padding: 1.5rem;
+            }
         }
     </style>
 </head>
@@ -277,7 +339,7 @@
 <body>
     <header>
         <div class="logo">
-            <img src="gdlplogo.png" alt="logo gloss detailing">
+            <!--    <img src="gdlplogo.png" alt="logo gloss detailing"> -->
             <span>Gloss Detailing LP</span>
         </div>
         <!-- boton hamburguesa -->
@@ -307,8 +369,6 @@
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
             <h2>Contáctanos</h2>
-            <!--           <a href="mailto:contacto@glossdetailinglp.com"><i class="fa-solid fa-envelope"></i>
-                contacto@glossdetailinglp.com</a> -->
             <a href="https://wa.me/5492216241019" target="_blank"><i class="fa-brands fa-whatsapp"></i> +54 9 221
                 624-1019
             </a>
