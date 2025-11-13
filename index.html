@@ -30,16 +30,9 @@
             background: var(--bg-dark);
             color: var(--text-light);
             overflow-x: hidden;
-        }
-
-        /* Desktop: sin scroll, altura fija */
-        @media (min-width: 769px) {
-            body {
-                height: 100vh;
-                display: flex;
-                flex-direction: column;
-                overflow-y: hidden;
-            }
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         header {
@@ -130,14 +123,14 @@
 
         .hero {
             text-align: center;
-            padding: 1.8rem 1rem 1.2rem;
+            padding: 2rem 1rem 1.5rem;
             background: linear-gradient(135deg, rgba(228, 20, 20, 0.2), rgba(192, 192, 192, 0.2));
             flex-shrink: 0;
         }
 
         .hero img {
-            width: 240px;
-            margin-bottom: 0.7rem;
+            width: 180px;
+            margin-bottom: 0.8rem;
             filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.2));
         }
 
@@ -145,13 +138,13 @@
             font-size: 2rem;
             font-weight: 800;
             color: var(--accent);
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.5rem;
         }
 
         .hero p {
             font-size: 1rem;
             color: #ccc;
-            margin-bottom: 0.9rem;
+            margin-bottom: 1rem;
         }
 
         .btn {
@@ -232,31 +225,25 @@
         }
 
         .services {
-            padding: 1.2rem 1.5rem 0.8rem;
+            padding: 1.5rem 1.5rem 1rem;
             text-align: center;
-        }
-
-        /* Desktop: servicios ocupan espacio restante */
-        @media (min-width: 769px) {
-            .services {
-                flex: 1;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-            }
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .services h2 {
-            font-size: 1.5rem;
-            margin-bottom: 0.8rem;
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
             color: var(--accent);
         }
 
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1rem;
-            margin-top: 0.8rem;
+            gap: 1.2rem;
+            margin-top: 1rem;
             max-width: 1200px;
             margin-left: auto;
             margin-right: auto;
@@ -293,11 +280,10 @@
             flex-shrink: 0;
         }
 
-        /* Responsive móvil: scroll normal */
+        /* responsive móvil: vuelve a scroll normal */
         @media (max-width: 768px) {
             body {
                 height: auto;
-                overflow-y: auto;
             }
 
             nav {
@@ -308,66 +294,31 @@
                 display: block;
             }
 
-            .hero {
-                padding: 3rem 1rem 2rem;
-            }
-
             .hero img {
                 width: 160px;
             }
 
             .hero h1 {
                 font-size: 1.8rem;
-                margin-bottom: 0.6rem;
             }
 
             .hero p {
                 font-size: 1rem;
-                margin-bottom: 1.2rem;
-            }
-
-            .btn {
-                padding: 0.8rem 1.5rem;
-                font-size: 1rem;
             }
 
             .services {
-                padding: 2.5rem 1rem;
+                padding: 2rem 1rem;
             }
 
             .services h2 {
-                font-size: 1.6rem;
-                margin-bottom: 1.2rem;
-            }
-
-            .services-grid {
-                gap: 1.5rem;
-                margin-top: 1.5rem;
-            }
-
-            .card {
-                padding: 1.5rem;
-            }
-
-            .card h3 {
-                font-size: 1.2rem;
-            }
-
-            .card p {
-                font-size: 1rem;
-            }
-
-            footer {
-                padding: 1rem;
-                font-size: 0.9rem;
-                margin-top: 2rem;
+                font-size: 1.5rem;
             }
         }
 
-        /* Pantallas muy grandes: logo aún más grande */
+        /* pantallas muy grandes: ajuste adicional */
         @media (min-width: 1600px) {
             .hero img {
-                width: 280px;
+                width: 200px;
             }
 
             .hero h1 {
@@ -380,10 +331,6 @@
 
             .card {
                 padding: 1.5rem;
-            }
-
-            .card h3 {
-                font-size: 1.2rem;
             }
         }
     </style>
