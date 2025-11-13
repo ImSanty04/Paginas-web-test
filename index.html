@@ -280,10 +280,81 @@
             flex-shrink: 0;
         }
 
-        /* responsive móvil: vuelve a scroll normal */
+        /* ========== RESPONSIVE TABLETS (768px - 1024px) ========== */
+        @media (max-width: 1024px) and (min-width: 769px) {
+            body {
+                height: auto;
+                overflow-y: auto;
+            }
+
+            .hero {
+                padding: 3rem 2rem 2.5rem;
+            }
+
+            .hero img {
+                width: 200px;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .btn {
+                padding: 0.8rem 1.6rem;
+                font-size: 1rem;
+            }
+
+            .services {
+                padding: 3rem 2rem;
+            }
+
+            .services h2 {
+                font-size: 1.8rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .services-grid {
+                gap: 1.5rem;
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .card {
+                padding: 1.5rem;
+            }
+
+            .card h3 {
+                font-size: 1.2rem;
+            }
+
+            .card p {
+                font-size: 1rem;
+            }
+
+            footer {
+                padding: 1.2rem;
+                font-size: 0.9rem;
+                margin-top: 3rem;
+            }
+        }
+
+        /* ========== RESPONSIVE MÓVILES (hasta 768px) ========== */
         @media (max-width: 768px) {
             body {
                 height: auto;
+                overflow-y: auto;
+            }
+
+            header {
+                padding: 0.8rem 1rem;
+            }
+
+            .logo span {
+                font-size: 1.1rem;
             }
 
             nav {
@@ -294,28 +365,138 @@
                 display: block;
             }
 
+            .hero {
+                padding: 3rem 1.5rem 2.5rem;
+            }
+
             .hero img {
                 width: 160px;
+                margin-bottom: 1rem;
             }
 
             .hero h1 {
                 font-size: 1.8rem;
+                margin-bottom: 0.8rem;
             }
 
             .hero p {
                 font-size: 1rem;
+                margin-bottom: 1.5rem;
+                padding: 0 1rem;
+            }
+
+            .btn {
+                padding: 0.9rem 1.6rem;
+                font-size: 1rem;
+                margin: 0.5rem;
+                display: block;
+                max-width: 280px;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 0.5rem;
             }
 
             .services {
-                padding: 2rem 1rem;
+                padding: 3rem 1.5rem;
             }
 
             .services h2 {
-                font-size: 1.5rem;
+                font-size: 1.6rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                margin-top: 1.5rem;
+            }
+
+            .card {
+                padding: 1.5rem;
+            }
+
+            .card h3 {
+                font-size: 1.2rem;
+                margin-bottom: 0.7rem;
+            }
+
+            .card p {
+                font-size: 1rem;
+                line-height: 1.5;
+            }
+
+            footer {
+                padding: 1.5rem 1rem;
+                font-size: 0.9rem;
+                margin-top: 3rem;
+            }
+
+            /* Modal responsive */
+            .modal-content {
+                margin: 20% auto;
+                padding: 1.5rem;
+                width: 85%;
+            }
+
+            .modal-content h2 {
+                font-size: 1.4rem;
+            }
+
+            .modal-content a {
+                font-size: 1rem;
+                margin: 1rem 0;
             }
         }
 
-        /* pantallas muy grandes: ajuste adicional */
+        /* ========== MÓVILES PEQUEÑOS (hasta 480px) ========== */
+        @media (max-width: 480px) {
+            .logo span {
+                font-size: 1rem;
+            }
+
+            .hero {
+                padding: 2.5rem 1rem 2rem;
+            }
+
+            .hero img {
+                width: 140px;
+            }
+
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+
+            .hero p {
+                font-size: 0.95rem;
+            }
+
+            .btn {
+                padding: 0.8rem 1.4rem;
+                font-size: 0.95rem;
+            }
+
+            .services {
+                padding: 2.5rem 1rem;
+            }
+
+            .services h2 {
+                font-size: 1.4rem;
+            }
+
+            .card {
+                padding: 1.3rem;
+            }
+
+            .card h3 {
+                font-size: 1.1rem;
+            }
+
+            .card p {
+                font-size: 0.95rem;
+            }
+        }
+
+        /* ========== PANTALLAS MUY GRANDES (1600px+) ========== */
         @media (min-width: 1600px) {
             .hero img {
                 width: 200px;
