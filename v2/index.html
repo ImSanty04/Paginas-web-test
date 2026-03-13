@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gloss Detailing LP | Estética Automotriz</title>
+  <meta name="description" content="Estética automotriz en La Plata: pulido, tratamientos cerámicos y limpieza premium.">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; connect-src 'self' https://*.supabase.co; img-src 'self' data: blob: https:; media-src 'self' blob: https:; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self';">
+  <meta property="og:title" content="Gloss Detailing LP">
+  <meta property="og:description" content="Resultados de estética automotriz en La Plata.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/gdlplogo.png">
+  <link rel="icon" type="image/png" href="assets/gdlplogo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="index.html" aria-label="Inicio">
+      <img src="assets/gdlplogo.png" alt="Logo Gloss Detailing LP">
+      <span>Gloss Detailing LP</span>
+    </a>
+
+    <button class="menu-toggle" id="menuBtn" type="button" aria-expanded="false" aria-controls="siteNav" aria-label="Abrir menú">
+      ☰
+    </button>
+
+    <nav class="site-nav" id="siteNav" aria-label="Navegación principal">
+      <a href="portafolio.html">Servicios</a>
+      <button class="contact-trigger" type="button" data-open-contact>Contactos</button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <img src="assets/gdlplogo.png" alt="Logo principal Gloss Detailing LP" loading="eager">
+      <h1>Expertos en Estética Automotriz</h1>
+      <p>Protegemos y realzamos la belleza de tu vehículo con la mejor calidad en La Plata.</p>
+      <div class="hero-actions">
+        <a class="btn" href="portafolio.html">Ver Servicios</a>
+        <button class="btn btn-alt" type="button" data-open-contact>Contactar</button>
+      </div>
+    </section>
+
+    <section class="section" id="servicios">
+      <h2>Nuestros Servicios</h2>
+      <div class="cards-grid">
+        <article class="card">
+          <h3>Pulido y Abrillantado</h3>
+          <p>Recuperamos el brillo natural de tu auto con técnicas profesionales y terminación uniforme.</p>
+        </article>
+        <article class="card">
+          <h3>Tratamientos Cerámicos</h3>
+          <p>Protección duradera contra rayones, suciedad y desgaste por uso diario.</p>
+        </article>
+        <article class="card">
+          <h3>Limpieza Premium</h3>
+          <p>Detalle interior y exterior para que tu vehículo luzca impecable en cada entrega.</p>
+        </article>
+        <article class="card">
+          <h3>Aspirado y Tapizados</h3>
+          <p>Limpieza profunda de alfombras, asientos y plásticos para una cabina renovada.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="metodos">
+      <h2>Métodos de Trabajo</h2>
+      <div class="cards-grid methods-grid">
+        <article class="card">
+          <h3>1. Diagnóstico</h3>
+          <p>Evaluamos pintura, interior y estado general para definir el tratamiento ideal.</p>
+        </article>
+        <article class="card">
+          <h3>2. Tratamiento</h3>
+          <p>Aplicamos procesos técnicos por etapas para maximizar corrección y protección.</p>
+        </article>
+        <article class="card">
+          <h3>3. Entrega</h3>
+          <p>Mostramos resultados finales y recomendaciones prácticas para mantenimiento.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="resultados">
+      <h2>Resultados</h2>
+      <div class="results-grid" id="homeResultsGrid">
+        <p class="gallery-status">Cargando resultados...</p>
+      </div>
+      <a class="btn results-btn" href="portafolio.html">Ver Servicios Completos</a>
+    </section>
+  </main>
+
+  <div id="contactModal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="contactTitle">
+    <div class="modal-content">
+      <button class="close" type="button" data-close-contact aria-label="Cerrar">&times;</button>
+      <h2 id="contactTitle">Contáctanos</h2>
+      <a href="https://wa.me/5492216241019" target="_blank" rel="noopener noreferrer">WhatsApp: +54 9 221 624-1019</a>
+      <a href="https://www.instagram.com/Glossdetailing.lp" target="_blank" rel="noopener noreferrer">Instagram: @Glossdetailing.lp</a>
+      <h3>Métodos que usamos</h3>
+      <div class="modal-methods" aria-label="Métodos de trabajo">
+        <article class="modal-method-card">
+          <h4>1. Diagnóstico</h4>
+          <p>Evaluamos el estado general para definir el servicio ideal.</p>
+        </article>
+        <article class="modal-method-card">
+          <h4>2. Tratamiento</h4>
+          <p>Aplicamos procesos técnicos por etapas según cada vehículo.</p>
+        </article>
+        <article class="modal-method-card">
+          <h4>3. Entrega</h4>
+          <p>Mostramos el resultado final y recomendaciones de cuidado.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> Gloss Detailing LP</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="supabase-client.js"></script>
+  <script src="main.js"></script>
+  <script src="gallery-runtime.js"></script>
+</body>
+</html>

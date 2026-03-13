@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin | Gloss Detailing LP</title>
+  <meta name="description" content="Panel administrador para gestionar servicios multimedia.">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; connect-src 'self' https://*.supabase.co; img-src 'self' data: blob: https:; media-src 'self' blob: https:; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self';">
+  <link rel="icon" type="image/png" href="assets/gdlplogo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="index.html" aria-label="Volver al inicio">
+      <img src="assets/gdlplogo.png" alt="Logo Gloss Detailing LP">
+      <span>Gloss Detailing LP</span>
+    </a>
+
+    <button class="menu-toggle" id="menuBtn" type="button" aria-expanded="false" aria-controls="siteNav" aria-label="Abrir menÃº">
+      &#9776;
+    </button>
+
+    <nav class="site-nav" id="siteNav" aria-label="NavegaciÃ³n principal">
+      <a href="portafolio.html">Servicios</a>
+      <a href="admin.html">Admin</a>
+      <a href="index.html">Inicio</a>
+    </nav>
+  </header>
+
+  <main class="container admin-page">
+    <section class="admin-card" id="authSection">
+      <h1>Modo Administrador</h1>
+      <p class="admin-subtitle">Ingresa con usuario y clave para gestionar imÃ¡genes y videos.</p>
+      <form id="loginForm" class="admin-form">
+        <label for="loginEmail">Email</label>
+        <input id="loginEmail" name="email" type="email" autocomplete="username" required>
+
+        <label for="loginPassword">ContraseÃ±a</label>
+        <input id="loginPassword" name="password" type="password" autocomplete="current-password" required>
+
+        <button type="submit" class="btn">Entrar</button>
+      </form>
+      <p id="authMessage" class="admin-message" aria-live="polite"></p>
+    </section>
+
+    <section class="admin-dashboard hidden" id="dashboardSection">
+      <div class="admin-topbar">
+        <h2>Panel de Gestion</h2>
+        <button class="btn btn-alt" id="logoutBtn" type="button">Salir</button>
+      </div>
+
+      <section class="admin-card">
+        <h3>ConfiguraciÃ³n de Resultados en Inicio</h3>
+        <div class="admin-inline">
+          <label for="homeModeSelect">Modo</label>
+          <select id="homeModeSelect">
+            <option value="auto">Auto (Ãºltimos 3)</option>
+            <option value="manual">Manual (destacados)</option>
+          </select>
+          <button class="btn" id="saveHomeModeBtn" type="button">Guardar modo</button>
+        </div>
+      </section>
+
+      <section class="admin-card">
+        <h3>Subir nuevo contenido</h3>
+        <form id="uploadForm" class="admin-form">
+          <label for="mediaFile">Archivo (imagen o video)</label>
+          <input id="mediaFile" name="file" type="file" accept="image/jpeg,image/png,image/webp,image/gif,video/mp4,video/webm,video/quicktime" required>
+
+          <label for="mediaAlt">Texto ALT</label>
+          <input id="mediaAlt" name="alt_text" type="text" maxlength="180" placeholder="Ej: Pulido profesional en sedÃ¡n negro">
+
+          <label for="mediaCaption">Titulo visible</label>
+          <input id="mediaCaption" name="caption" type="text" maxlength="180" placeholder="Ej: Correccion de pintura en 2 etapas">
+
+          <button class="btn" type="submit">Subir archivo</button>
+        </form>
+      </section>
+
+      <section class="admin-card">
+        <h3>GalerÃ­a Publicada</h3>
+        <div class="gallery-toolbar" id="adminOrderToolbar" role="group" aria-label="Orden de listado">
+          <button type="button" class="gallery-filter active" data-admin-order="manual">Destacados</button>
+          <button type="button" class="gallery-filter" data-admin-order="recent">Recientes</button>
+          <button type="button" class="gallery-filter" data-admin-order="old">Antiguos</button>
+        </div>
+        <p class="admin-hint">Arrastra las tarjetas para reordenar en modo Destacados.</p>
+        <div class="admin-media-list" id="adminGalleryList"></div>
+      </section>
+
+      <section class="admin-card">
+        <h3>Papelera</h3>
+        <p class="admin-hint">AquÃ­ puedes restaurar o borrar permanentemente.</p>
+        <div class="admin-media-list" id="adminTrashList"></div>
+      </section>
+
+      <p id="adminMessage" class="admin-message" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> Gloss Detailing LP - Admin</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="supabase-client.js"></script>
+  <script src="main.js"></script>
+  <script src="admin-runtime.js"></script>
+</body>
+</html>
+

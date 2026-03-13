@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Servicios | Gloss Detailing LP</title>
+  <meta name="description" content="Servicios y resultados de trabajos de Gloss Detailing LP.">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; connect-src 'self' https://*.supabase.co; img-src 'self' data: blob: https:; media-src 'self' blob: https:; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self';">
+  <meta property="og:title" content="Servicios Gloss Detailing LP">
+  <meta property="og:description" content="Resultados de pulido, limpieza y protección automotriz.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/gdlplogo.png">
+  <link rel="icon" type="image/png" href="assets/gdlplogo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="index.html" aria-label="Volver al inicio">
+      <img src="assets/gdlplogo.png" alt="Logo Gloss Detailing LP">
+      <span>Gloss Detailing LP</span>
+    </a>
+
+    <button class="menu-toggle" id="menuBtn" type="button" aria-expanded="false" aria-controls="siteNav" aria-label="Abrir menú">
+      ☰
+    </button>
+
+    <nav class="site-nav" id="siteNav" aria-label="Navegación principal">
+      <a href="portafolio.html">Servicios</a>
+      <button class="contact-trigger" type="button" data-open-contact>Contactos</button>
+    </nav>
+  </header>
+
+  <main class="container portfolio-page">
+    <section class="portfolio-hero">
+      <h1>Servicios</h1>
+      <p>Resultados de servicios realizados en el taller.</p>
+      <div class="gallery-toolbar" id="publicGalleryToolbar" role="group" aria-label="Orden de galería">
+        <button type="button" class="gallery-filter active" data-gallery-order="manual">Destacados</button>
+        <button type="button" class="gallery-filter" data-gallery-order="recent">Recientes</button>
+        <button type="button" class="gallery-filter" data-gallery-order="old">Antiguos</button>
+      </div>
+    </section>
+
+    <section class="portfolio-grid" id="portfolioGrid">
+      <p class="gallery-status">Cargando galería...</p>
+    </section>
+    <div class="gallery-pagination hidden" id="publicGalleryPagination" aria-label="Paginación de galería"></div>
+
+    <div class="portfolio-actions">
+      <a class="btn" href="index.html">Volver al inicio</a>
+      <button class="btn btn-alt" type="button" data-open-contact>Contactar</button>
+    </div>
+  </main>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox-content" id="lightboxContent">
+      <button class="close lightbox-close" type="button" id="lightboxClose" aria-label="Cerrar">&times;</button>
+    </div>
+  </div>
+
+  <div id="contactModal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="contactTitle">
+    <div class="modal-content">
+      <button class="close" type="button" data-close-contact aria-label="Cerrar">&times;</button>
+      <h2 id="contactTitle">Contáctanos</h2>
+      <a href="https://wa.me/5492216241019" target="_blank" rel="noopener noreferrer">WhatsApp: +54 9 221 624-1019</a>
+      <a href="https://www.instagram.com/Glossdetailing.lp" target="_blank" rel="noopener noreferrer">Instagram: @Glossdetailing.lp</a>
+      <h3>Métodos que usamos</h3>
+      <div class="modal-methods" aria-label="Métodos de trabajo">
+        <article class="modal-method-card">
+          <h4>1. Diagnóstico</h4>
+          <p>Evaluamos el estado general para definir el servicio ideal.</p>
+        </article>
+        <article class="modal-method-card">
+          <h4>2. Tratamiento</h4>
+          <p>Aplicamos procesos técnicos por etapas según cada vehículo.</p>
+        </article>
+        <article class="modal-method-card">
+          <h4>3. Entrega</h4>
+          <p>Mostramos el resultado final y recomendaciones de cuidado.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> Gloss Detailing LP - Servicios</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="supabase-client.js"></script>
+  <script src="main.js"></script>
+  <script src="gallery-runtime.js"></script>
+</body>
+</html>
